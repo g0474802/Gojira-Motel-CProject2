@@ -1,0 +1,135 @@
+header, nav, main, footer { display: block; }
+body { background-color: #042c40;
+       font-family: Verdana, Arial, sans-serif;
+}/*For the font*/
+#wrapper { width: 960px;
+           margin: auto;
+		   background-color: #346075;
+		   color: #330000;
+		   box-shadow: 5px 5px 5px #000000;
+}
+h1 { background-image: url(images/gojiposter.jpeg);
+     background-repeat: no-repeat;
+     background-color: #F4E8BC;
+	 height: 110px;
+	 font-family: Georgia, "Times New Roman", serif;
+	 font-size: 4.5em;
+     padding-left: 220px;
+	 padding-top: 20px;
+	 text-shadow: 3px 3px 3px #90745D;
+	 margin-bottom: 0;
+}/*To give the headers a bold style*/
+nav { padding-top: 10px;
+      float: left;
+      width: 200px; 
+}
+nav ul { list-style-type: none; 
+       padding-left: 20px;
+	   background-color: #346075;
+	 }
+nav li { padding-bottom: 5px;
+       font-weight: bold;
+}
+nav a {
+    text-decoration: none; /* Remove underline from links */
+}
+
+nav a:link {
+    color: #FEF6C2; /* Link color */
+}
+
+nav a:visited {
+    color: #D2B48C; /* Visited link color */
+}
+
+nav a:hover {
+    color: #CC9933; /* Hover link color */
+}
+
+
+main { background-color: #FFFFCC;
+          margin-left: 200px;
+          padding: 1px 20px 20px 20px;   
+		  min-height: 300px;
+		  overflow: auto;
+		  
+}/*For the main color*/
+main img { float: right;
+              padding: 20px;
+}
+
+
+ /* Map Styles */
+ 
+ div#displayMap {
+    width: 40%;
+    padding-bottom: 30%;
+    height: 0;
+    margin: 20px auto;
+    border: 3px solid gray;
+ }
+ 
+
+ div#routeBox {
+    width: 70%;
+    margin: 10px auto;
+    min-height: 50px;
+    border: 3px solid gray;
+    text-align: center;
+ }
+footer { background-color: #FFFFCC;
+       margin-left: 200px;
+       padding: 20px;
+       text-align: center;
+	   font-size: small;
+	   font-style: italic;
+}
+/* For mobile phones: */
+#mobile {
+    display: inline; /* Display as inline element */
+}
+@media (min-width: 600px) {
+    header {
+        padding-left: 0; /* Remove left padding */
+        text-align: center; /* Align text to the center */
+    }
+
+    h1 {
+        font-size: 3em; /* Font size for h1 */
+    }
+
+    nav ul {
+        flex-flow: row nowrap; /* Arrange items in a single row */
+        justify-content: space-around; /* Distribute items evenly */
+    }
+
+    nav li {
+        border-bottom: none; /* Remove bottom border */
+    }
+	#flow {
+        display: flex; /* Use flexbox */
+        flex-direction: row; /* Arrange items in a row */
+    }
+
+    #mobile {
+        display: none; /* Hide element */
+    }
+
+    #desktop {
+        display: inline; /* Display as inline element */
+    }
+
+    .details {
+        display: flex; /* Use flexbox */
+        flex-direction: row; /* Arrange items in a row */
+    }
+h4 {
+    margin-left: 10%; /* Add left margin */
+    margin-right: 10%; /* Add right margin */
+}
+form {
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items in a column */
+  padding-left: 1em; /* Add left padding */
+  width: 80%; /* Set width */
+}
