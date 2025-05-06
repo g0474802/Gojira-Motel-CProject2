@@ -40,3 +40,32 @@ function updateGuestCost() {//
     : "The total average cost for all guests is $" + result;
   document.getElementById("guestNum").innerHTML = message;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const zipInput = document.getElementById('zipcode');
+  const resultDiv = document.getElementById('zip-result');
+
+  if (zipInput) {
+    zipInput.addEventListener('input', function () {
+      const zip = this.value;
+
+      if (zip.length === 5 && /^\d+$/.test(zip)) {
+        fetch(`https://api.zippopotam.us/us/${zip}`)
+          .then(response => {
+            if (!response.ok) throw new Error('ZIP not found');
+            return response.json();
+          })
+          .then(data => {
+            resultDiv.textContent = `Valid ZIP: ${data.places[0]['place name']}, ${data.places[0]['state abbreviation']}`;
+            resultDiv.style.color = 'green';
+          })
+          .catch(() => {
+            resultDiv.textContent = 'Invalid ZIP code.';
+            resultDiv.style.color = 'red';
+          });
+      } else {
+        resultDiv.textContent = '';
+      }
+    });
+  }
+});
