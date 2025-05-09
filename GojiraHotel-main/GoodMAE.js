@@ -1,45 +1,41 @@
 function getTimeBasedMessage() {
-    const now = new Date();
-    const hour = now.getHours();
-    let message = "";
+  const now = new Date();
+  const hour = now.getHours();
+  let message = "";
 
-    if (hour >= 5 && hour < 12) {//determines what the time is and outputs a message based on the time
+  if (hour >= 5 && hour < 12) {
       message = "Good morning! Welcome to the Gojira Motel.";
-    } else if (hour >= 12 && hour < 17) {
+  } else if (hour >= 12 && hour < 17) {
       message = "Good afternoon! Enjoy your stay at the Gojira Motel.";
-    } else if (hour >= 17 && hour < 21) {
+  } else if (hour >= 17 && hour < 21) {
       message = "Good evening! Kick back and relax with Gojira movies.";
-    } else {
-      message = "Good night! We hope you sleep well at the Gojira Motel.";
-    }
-
-    return message;
-  }
-  document.getElementById("GoodMAE").innerText = getTimeBasedMessage();
-//---------------------------------
-document.addEventListener("DOMContentLoaded", function () {//waits for the document to be fully loaded to prevent null errors
-  document.getElementById("calculateBtn").addEventListener("click", function () {//event listener for the button click
-    updateGuestCost();
-  });
-});
-
-function GuestMessage() {//function that calculates the total cost for all guests
-  const guestCount = parseFloat(document.getElementById("guestInput").value);
-  if (!isNaN(guestCount)) {//determines if input is or isn't a number
-    const costPerGuest = 50; // declares cost per guest
-    return guestCount * costPerGuest;//equation for total cost
   } else {
-    return "an invalid number.";
+      message = "Good night! We hope you sleep well at the Gojira Motel.";
   }
+
+  return message;
 }
 
-function updateGuestCost() {//
-  const result = GuestMessage();
-  const message = isNaN(result)
-    ? "Please enter a valid number of guests."
-    : "The total average cost for all guests is $" + result;
-  document.getElementById("guestNum").innerHTML = message;
-}
+// Original:
+// document.getElementById("GoodMAE").innerText = getTimeBasedMessage();
+// jQuery replacement:
+$("#GoodMAE").text(getTimeBasedMessage());
+
+//---------------------------------
+
+// Original:
+// document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
+  // Original:
+  // document.getElementById("calculateBtn").addEventListener("click", function () {
+  $("#calculateBtn").on("click", function () {
+      updateGuestCount();
+  });
+
+  // Original:
+  // document.querySelector(".room-info").style.display = "block";
+  $(".room-info").css("display", "block");
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   const zipInput = document.getElementById('zipcode');
